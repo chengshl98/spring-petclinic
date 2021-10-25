@@ -13,7 +13,7 @@ pipeline {
         steps {
           
             withSonarQubeEnv('sonar_server') {
-                sh "${scannerHome}/bin/sonar-scanner"+
+                sh "${scannerHome}/bin/sonar-scanner "+
                     "-Dsonar.projectKey=petclinic " +
                     "-Dsonar.projectName=spring-petclinic " +
                     "-Dsonar.projectVersion=1.0.0 " +
