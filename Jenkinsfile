@@ -20,9 +20,6 @@ pipeline {
                     "-Dsonar.java.binaries=/var/lib/jenkins/workspace/spring-petclinic_main/src " +
                     "-Dsonar.sourceEncoding=UTF-8"
             }
-            timeout(time: 10, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-            }
         }
     }
   }
