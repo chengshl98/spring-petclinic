@@ -4,6 +4,7 @@ pipeline {
     stage('Build') {
       steps {
         sh './mvnw package'
+        sh 'export job=$job:spring-petclinic'
       }
     }
     stage('Sonarqube Test') {
@@ -11,6 +12,7 @@ pipeline {
             scannerHome = tool 'SonarQubeScanner'
         }
         steps {
+          
             withSonarQubeEnv('sonar_server') {
                 sh "${scannerHome}/bin/sonar-scanner"
             }
