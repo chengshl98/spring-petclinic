@@ -6,12 +6,12 @@ pipeline {
         sh './mvnw package'
       }
     }
-    stage('Sonarqube') {
+    stage('Sonarqube Test') {
         environment {
             scannerHome = tool 'SonarQubeScanner'
         }
         steps {
-            withSonarQubeEnv('sonarqube') {
+            withSonarQubeEnv('sonar_server') {
                 sh "${scannerHome}/bin/sonar-scanner"
             }
             timeout(time: 10, unit: 'MINUTES') {
